@@ -43,7 +43,7 @@ def grad_mollifier(x,eps):
 def grad_W(x):
     ##|x|^4/4 - |x| ##
     ##normy = norm(x)
-    output = x #-10*grad_mollifier(x,np.sqrt(.3))#x #(normy**2) * x
+    output =  -grad_mollifier(x,np.sqrt(.3))#x #(normy**2) * x
     return output
 
 def V_prime(t,x):
@@ -146,11 +146,11 @@ def sweep(parameters):
         except:
             print("Error with solution parameters A = %d, B = %d, C = %d" % (set[0], set[1], set[2]) )
             bad_list.append(set)
-        try:
-            plot_trajectories(sol, M, "A%d_B%d_C%d" % (set[0], set[1], set[2]) )
-            plot_profiles(sol, M, len(sol['t'])-1, 200, "A%d_B%d_C%d" % (set[0], set[1], set[2]))
-        except:
-            print("Error with plotting solution with parameters A = %d, B = %d, C = %d" % (set[0], set[1], set[2]) )
+       # try:
+           # plot_trajectories(sol, M, "A%d_B%d_C%d" % (set[0], set[1], set[2]) )
+       #     plot_profiles(sol, M, len(sol['t'])-1, 200, "A%d_B%d_C%d" % (set[0], set[1], set[2]))
+       # except:
+       #     print("Error with plotting solution with parameters A = %d, B = %d, C = %d" % (set[0], set[1], set[2]) )
 
     return sol_dict, bad_list
 
