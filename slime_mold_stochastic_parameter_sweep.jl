@@ -37,11 +37,11 @@ for i in 1:length(parameter_list)
     push!(particle_outputs, averager_output[1]) #store the output data
 
     sample_trajectories = averager_output[5]  ##plot the particle trajectories from one of the runs
-    plot(sample_trajectories[2], transpose(sample_trajectories[1]), color = "red", legend = false, title = "sample_trajectories_$(filename)")
-    savefig("sample_trajectories_$(filename)")
+    f= plot(sample_trajectories[2], transpose(sample_trajectories[1]), color = "red", legend = false, title = "sample_trajectories_$(filename)");
+    savefig(f,"sample_trajectories_$(filename)");
 
-    title!(averager_output[6], "averaged_profiles_$(filename)")
-    savefig(averager_output[6], "averaged_profiles_$(filename)")
+    title!(averager_output[6], "averaged_profiles_$(filename)");
+    savefig(averager_output[6], "averaged_profiles_$(filename)");
 end
 
 @save "$(kernal_string)_output_dict.jld" particle_outputs ##save all the trajectories from each run load using @load filename particle_outputs
