@@ -83,7 +83,7 @@ end
 """run the stochastic simulation "run" times with N particles with initial posistions drawn randomly from a gaussian (mu, sigma) each run.  Compute and plot normalized histograms on bins given by bin_start, bin_end and bin_number after all runs of particle positions at times given by t_list"""
 function averager(runs, N, bin_start, bin_end, bin_number, t_list, sigma, mu,T,dt,kernal_choice,A,B,C,y1,y0)
     d = Normal(mu, sigma)
-    outputs = []
+    #outputs = []
     histogram_values = zeros(length(t_list), bin_number, runs)
     sample_output = 0 ##variable to store a sample of trajectories in
 
@@ -94,7 +94,7 @@ function averager(runs, N, bin_start, bin_end, bin_number, t_list, sigma, mu,T,d
         if i == 1
             sample_output = (output[1], output[2])
         end
-        push!(outputs, output)
+        #push!(outputs, output)
         for j in 1:length(t_list)
             output_step = Int(round(t_list[j]/dt))
             histogram = fit(Histogram, output[1][:, output_step], range(bin_start, bin_end, length = bin_number +1))
@@ -116,10 +116,10 @@ function averager(runs, N, bin_start, bin_end, bin_number, t_list, sigma, mu,T,d
     colors = ["red" "blue" "green" "orange"]
 
     f = plot(x, transpose(histo_sum), label = labels, color = colors)
-    return (outputs, histogram_values, x, histo_sum, sample_output, f)
+    return (histogram_values, x, histo_sum, sample_output, f)
 end
 
-"""just computes/plots histogram of final time after running stochastic simulation 'runs' times with N particles.""" 
+"""just computes/plots histogram of final time after running stochastic simulation 'runs' times with N particles."""
 function averager_end(runs, N, bin_start, bin_end, bin_number, sigma, mu,T,dt,kernal_choice,A,B,C,y1,y0)
     d = Normal()
     histogram_values = zeros(bin_number, runs)
