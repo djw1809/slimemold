@@ -43,13 +43,14 @@ def sweep_1D(ABC_parameters, x0, maximum_step_size, T, y0, y1, M, m, eps, kernal
         sol_dict[pset] =  sol
         # compute times to plot profiles
         steps = len(sol['y'][0, :])
+        print(steps)
         steps_between_profiles = steps // plot_profiles
         plot_times = []
         plot_times = [i * steps for i in range(0,plot_profiles +1)]
         if steps % steps_between_profiles == 0:
             plot_times[len(plot_times) -1] = plot_times[len(plot_times) -1] - 1
         else:
-            plot_times.append(steps -1 )
+            plot_times.append(steps -1)
 
         #plot
         slime1D.compute_and_plot_profiles(sol, M, plot_times, param_dict['cell_start'], param_dict['cell_end'], param_dict['eps'], param_dict['y0'], param_dict['y1'], 200, filename + "A%d_B%d_C%d" % (pset[0], pset[1], pset[2]))
