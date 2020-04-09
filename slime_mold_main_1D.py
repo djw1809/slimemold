@@ -46,7 +46,7 @@ def sweep_1D(ABC_parameters, x0, maximum_step_size, T, y0, y1, M, m, eps, kernal
         print(steps)
         steps_between_profiles = steps // plot_profiles
         plot_times = []
-        plot_times = [i * steps for i in range(0,plot_profiles +1)]
+        plot_times = [i * steps_between_profiles for i in range(0,plot_profiles +1)]
         if steps % steps_between_profiles == 0:
             plot_times[len(plot_times) -1] = plot_times[len(plot_times) -1] - 1
         else:
