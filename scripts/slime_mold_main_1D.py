@@ -13,8 +13,8 @@ from pathlib import Path
 #I Parameters
 param_dict = {}
 #I.1 Timing/grid/initial positions
-param_dict['N'] =  10 #number of particles for 1D or sqrt of number of partivles for 2D
-param_dict['T'] = 1 #final time
+param_dict['N'] =  300 #number of particles for 1D or sqrt of number of partivles for 2D
+param_dict['T'] = 2 #final time
 param_dict['cell_start'] =  -2.1 #start of spacial grid
 param_dict['cell_end'] = 2.1 #end of spacial grid
 param_dict['h'] = np.divide(param_dict['cell_end'] - param_dict['cell_start'], param_dict['N']) #stepsize in spacial grid
@@ -30,12 +30,12 @@ param_dict['kernal_choice'] = 1 ##choice of interaction kernal 1: polynomial, 2:
 param_dict['M'] = np.vectorize(slime1D.initial_masses)(param_dict['x0'],param_dict['initial_mass_profile']) * param_dict['h'] #particle masses
 param_dict['y0'] = 1 ##food source 1
 param_dict['y1'] = -1 ##food source 2
-param_dict['ABC_params'] = [(10,5,1)]#,(5,1,10)]#,(1,1,10),(10,1,1),(10,1,5),(10,5,1),(1,10,1),(1,10,5),(5,10,1),(1,1,1),(10,1,10),(1,10,10), (10,10,1)] #set of A,B and C values to sweep over
+param_dict['ABC_params'] = [(10,5,1)], (10,1,5),(10,1,1)], (10,5,5), (5,10,1),(1,10,5),(1,10,1), (5,10,5), (5,1,10),(1,5,10),(1,1,10), (5,5,10), (10,1,10),(1,10,10), (10,10,1), (10,5,10), (5,10,10), (10,10,5)] #set of A,B and C values to sweep over
 
 #I.3 plotting/saving parameters
 param_dict['plot_profiles'] = 3  #times you want to plot a trajectory for, will always plot initial and final profile - number is how many additional
-results_folder = '../results/test'# parameter_sweep_0420/polynomial_kernal/'
-filename = '/test'#'0420sweep_polynomial_kernal'
+results_folder = '../results/2020_sweep_polynomial_kernel'# parameter_sweep_0420/polynomial_kernal/'
+filename = '/2020_sweep_polynomial_kernel'#'0420sweep_polynomial_kernal'
 results_folder_path = Path(results_folder)
 results_folder_path.mkdir(parents = True, exist_ok = True)
 
