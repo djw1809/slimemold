@@ -41,7 +41,7 @@ def sweep_1D(ABC_parameters, x0, maximum_step_size, T, y0, y1, M, m, eps, kernal
 
         sol = solve_ivp(lambda t,y: slime1D.x_prime(t, y, pset[0], pset[1], pset[2], y0, y1, M, m, eps, kernal_choice), (0, T), x0, method = 'BDF', max_step = maximum_step_size)
         sol_dict[pset] =  sol
-        steps = len(sol[0, :])
+        steps = len(sol['y'][0, :])
         steps_between_profiles = steps // plot_profiles
         plot_times = []
         plot_times = [i * steps for i in range(0,plot_profiles +1)]
