@@ -8,6 +8,7 @@ import matplotlib.cm as cmx
 from numpy.linalg import norm
 from scipy.integrate import solve_ivp
 import pickle
+from pathlib import Path
 
 #I Parameters
 param_dict = {}
@@ -33,7 +34,10 @@ param_dict['ABC_params'] = [(10,5,1)]#,(5,1,10)]#,(1,1,10),(10,1,1),(10,1,5),(10
 
 #I.3 plotting/saving parameters
 param_dict['plot_profiles'] = 3  #times you want to plot a trajectory for, will always plot initial and final profile - number is how many additional
-filename = 'test'
+results_folder = '../results/parameter_sweep_0420/polynomial_kernal/'
+filename = '0420sweep_polynomial_kernal'
+results_folder_path = Path(results_folder)
+results_folder_path.mkdir(parents = True, exist_ok = True)
 
 def sweep_1D(ABC_parameters, x0, maximum_step_size, T, y0, y1, M, m, eps, kernal_choice, plot_profiles, file_name):
     sol_dict = {}
@@ -51,7 +55,7 @@ def sweep_1D(ABC_parameters, x0, maximum_step_size, T, y0, y1, M, m, eps, kernal
             plot_times[len(plot_times) -1] = plot_times[len(plot_times) -1] - 1
         else:
             plot_times.append(steps -1)
-        print(plot_times) 
+        print(plot_times)
 
         #plot
         slime1D.compute_and_plot_profiles(sol, M, plot_times, param_dict['cell_start'], param_dict['cell_end'], param_dict['eps'], param_dict['y0'], param_dict['y1'], 200, filename + "A%d_B%d_C%d" % (pset[0], pset[1], pset[2]))
@@ -60,7 +64,7 @@ def sweep_1D(ABC_parameters, x0, maximum_step_size, T, y0, y1, M, m, eps, kernal
 
 
 if __name__ == '__main__':
-    sols = sweep_1D(param_dict['ABC_params'], param_dict['x0'], param_dict['maximum_step_size'], param_dict['T'], param_dict['y0'], param_dict['y1'], param_dict['M'], param_dict['m'], param_dict['eps'], param_dict['kernal_choice'], param_dict['plot_profiles'], filename)
+    sols = sweep_1D(param_dict['ABC_params'], param_dict['x0'], param_dict['maximum_step_size'], param_dict['T'], param_dict['y0'], param_dict['y1'], param_dict['M'], param_dict['m'], param_dict['eps'], param_dict['kernal_choice'], param_dict['plot_profiles'], results_folder + filename)
 
     param_file = open(filename+'_param_dict.pkl', 'wb')
     sol_file = open(filename +'_solution_data.pkl', 'wb')
