@@ -34,8 +34,8 @@ param_dict['ABC_params'] = [(10,5,1)]#,(5,1,10)]#,(1,1,10),(10,1,1),(10,1,5),(10
 
 #I.3 plotting/saving parameters
 param_dict['plot_profiles'] = 3  #times you want to plot a trajectory for, will always plot initial and final profile - number is how many additional
-results_folder = '../results/parameter_sweep_0420/polynomial_kernal/'
-filename = '0420sweep_polynomial_kernal'
+results_folder = '../results/test'# parameter_sweep_0420/polynomial_kernal/'
+filename = 'test'#'0420sweep_polynomial_kernal'
 results_folder_path = Path(results_folder)
 results_folder_path.mkdir(parents = True, exist_ok = True)
 
