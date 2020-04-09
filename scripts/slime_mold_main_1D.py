@@ -30,7 +30,7 @@ param_dict['kernal_choice'] = 1 ##choice of interaction kernal 1: polynomial, 2:
 param_dict['M'] = np.vectorize(slime1D.initial_masses)(param_dict['x0'],param_dict['initial_mass_profile']) * param_dict['h'] #particle masses
 param_dict['y0'] = 1 ##food source 1
 param_dict['y1'] = -1 ##food source 2
-param_dict['ABC_params'] = [(10,5,1)], (10,1,5),(10,1,1)], (10,5,5), (5,10,1),(1,10,5),(1,10,1), (5,10,5), (5,1,10),(1,5,10),(1,1,10), (5,5,10), (10,1,10),(1,10,10), (10,10,1), (10,5,10), (5,10,10), (10,10,5)] #set of A,B and C values to sweep over
+param_dict['ABC_params'] = [(10,5,1)], (10,1,5),(10,1,1), (10,5,5), (5,10,1),(1,10,5),(1,10,1), (5,10,5), (5,1,10),(1,5,10),(1,1,10), (5,5,10), (10,1,10),(1,10,10), (10,10,1), (10,5,10), (5,10,10), (10,10,5)] #set of A,B and C values to sweep over
 
 #I.3 plotting/saving parameters
 param_dict['plot_profiles'] = 3  #times you want to plot a trajectory for, will always plot initial and final profile - number is how many additional
