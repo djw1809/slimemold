@@ -52,7 +52,7 @@ def sweep_1D(ABC_parameters, x0, maximum_step_size, T, y0, y1, M, m, eps, kernal
 
 
 if __name__ == '__main__':
-    sols = sweep_1D(param_dict['ABC_params'], param_dict['x0'], param_dict['maximum_step_size'], param_dict['T'], param_dict['y0'], param_dict['y1'], param_dict['M'], param_dict['m'], param_dict['eps'], param_dict['kernal_choice'], param_dict['plot_times'], filename)
+    sols = sweep_1D(param_dict['ABC_params'], param_dict['x0'], param_dict['maximum_step_size'], param_dict['T'], param_dict['y0'], param_dict['y1'], param_dict['M'], param_dict['m'], param_dict['eps'], param_dict['kernal_choice'], param_dict['plot_profiles'], filename)
 
     param_file = open(filename+'_param_dict.pkl', 'wb')
     sol_file = open(filename +'_solution_data.pkl', 'wb')
