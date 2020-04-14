@@ -13,7 +13,7 @@ from pathlib import Path
 #I Parameters
 param_dict = {}
 #I.1 Timing/grid/initial positions
-param_dict['N'] =  300 #number of particles for 1D or sqrt of number of partivles for 2D
+param_dict['N'] =  400 #number of particles for 1D or sqrt of number of partivles for 2D
 param_dict['T'] = 2 #final time
 param_dict['cell_start'] =  -2.1 #start of spacial grid
 param_dict['cell_end'] = 2.1 #end of spacial grid
