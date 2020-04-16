@@ -13,8 +13,8 @@ from pathlib import Path
 #I Parameters
 param_dict = {}
 #I.1 Timing/grid/initial positions
-param_dict['N'] =  600 #number of particles for 1D or sqrt of number of particles for 2D
-param_dict['T'] = 3 #final time
+param_dict['N'] =  200 #number of particles for 1D or sqrt of number of particles for 2D
+param_dict['T'] = 6 #final time
 param_dict['cell_start'] =  -2.1 #start of spacial grid
 param_dict['cell_end'] = 2.1 #end of spacial grid
 param_dict['h'] = np.divide(param_dict['cell_end'] - param_dict['cell_start'], param_dict['N']) #stepsize in spacial grid
@@ -25,13 +25,13 @@ param_dict['maximum_step_size'] = .1 ##maximum step-size for the solver
 #I.2 Model parameters
 param_dict['m'] = 1 #diffusion exponent
 param_dict['eps'] = np.power(param_dict['h'], .99) #mollifier parameter - see Carillo paper
-param_dict['initial_mass_profile'] = 1 ##shape of initial profile 1:gaussian, 2: double bump
+param_dict['initial_mass_profile'] = 2 ##shape of initial profile 1:gaussian, 2: double bump
 param_dict['kernal_choice'] = 3 ##choice of interaction kernal 1: polynomial, 2: gaussian w/ variance .3, 3: quadratic
 param_dict['M'] = np.vectorize(slime1D.initial_masses)(param_dict['x0'],param_dict['initial_mass_profile']) * param_dict['h'] #particle masses
 param_dict['y0'] = 1 ##food source 1
 param_dict['y1'] = -1 ##food source 2
 
-param_dict['ABC_params'] = [(10,5,1), (10,1,5),(10,1,1), (10,5,5), (5,10,1),(1,10,5),(1,10,1), (5,10,5), (10,1,10),(1,10,10), (10,10,1), (10,5,10), (5,10,10), (10,10,5)] #set of A,B and C values to sweep over
+param_dict['ABC_params'] = [(0,1,1)] #[(10,5,1), (10,1,5),(10,1,1), (10,5,5), (5,10,1),(1,10,5),(1,10,1), (5,10,5), (10,1,10),(1,10,10), (10,10,1), (10,5,10), (5,10,10), (10,10,5)] #set of A,B and C values to sweep over
 
 #I.3 plotting/saving parameters
 param_dict['plot_profiles'] = 3  #times you want to plot a trajectory for, will always plot initial and final profile - number is how many additional
