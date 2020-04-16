@@ -31,12 +31,12 @@ param_dict['M'] = np.vectorize(slime1D.initial_masses)(param_dict['x0'],param_di
 param_dict['y0'] = 1 ##food source 1
 param_dict['y1'] = -1 ##food source 2
 
-param_dict['ABC_params'] = [(0,1,1)] #[(10,5,1), (10,1,5),(10,1,1), (10,5,5), (5,10,1),(1,10,5),(1,10,1), (5,10,5), (10,1,10),(1,10,10), (10,10,1), (10,5,10), (5,10,10), (10,10,5)] #set of A,B and C values to sweep over
+param_dict['ABC_params'] = [(0,5,1)] #[(10,5,1), (10,1,5),(10,1,1), (10,5,5), (5,10,1),(1,10,5),(1,10,1), (5,10,5), (10,1,10),(1,10,10), (10,10,1), (10,5,10), (5,10,10), (10,10,5)] #set of A,B and C values to sweep over
 
 #I.3 plotting/saving parameters
 param_dict['plot_profiles'] = 3  #times you want to plot a trajectory for, will always plot initial and final profile - number is how many additional
-results_folder = '../results/2020_sweep_200_0food_quadratic_kernel'# parameter_sweep_0420/polynomial_kernal/'
-filename = '/2020_sweep_200_0food_polynomial_kernel'#'0420sweep_polynomial_kernal'
+results_folder = '../results/2020_sweep_200_0food_B5_quadratic_kernel'# parameter_sweep_0420/polynomial_kernal/'
+filename = '/2020_sweep_200_0food_B5_polynomial_kernel'#'0420sweep_polynomial_kernal'
 results_folder_path = Path(results_folder)
 results_folder_path.mkdir(parents = True, exist_ok = True)
 
