@@ -7,6 +7,7 @@ import matplotlib
 from numpy.linalg import norm
 from scipy.integrate import solve_ivp
 from mpl_toolkits.mplot3d import Axes3D
+import seaborn as sns
 
 ### parameters/Initialization ###
 m = 1 ##diffusion exponent
@@ -122,6 +123,7 @@ def x_prime(t,x, A, B, C, y0, y1,N, M, m, ep, kernal_choice):
 ##plotting
 #### plotting ####
 
+
 def plot_trajectories(sol, masses,N,title):
     t = sol['t']
     traj = sol['y']
@@ -139,6 +141,10 @@ def plot_trajectories(sol, masses,N,title):
     ax2 = fig.add_axes([0.94,0.1,0.02,0.7])
     cb = matplotlib.colorbar.ColorbarBase(ax2, cmap='viridis', norm=cNorm)
     plt.savefig(title)
+
+def plot_heatmap(sol, masses, N, time, gridpoints, cell_start, cell_end, ep, title):
+    fig, ax = plt.subplots(figsize = (9,6))
+    
 
 def plot_profiles(sol, masses, N, time, gridpoints, cell_start, cell_end, ep, title):
 

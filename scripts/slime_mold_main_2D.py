@@ -1,4 +1,4 @@
-import slime_mold_2D as slime2D
+import slime_mold_2D_final as slime2D
 import scipy as sci
 import numpy as np
 import matplotlib
