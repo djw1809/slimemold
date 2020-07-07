@@ -26,7 +26,7 @@ param_dict['maximum_step_size'] = .1 ##maximum step-size for the solver
 param_dict['m'] = 1 #diffusion exponent
 param_dict['eps'] = np.power(param_dict['h'], .99) #mollifier parameter - see Carillo paper
 param_dict['initial_mass_profile'] = 1 ##shape of initial profile 1:gaussian, 2: double bump
-param_dict['kernal_choice'] = 2 ##choice of interaction kernal 1: polynomial, 2: gaussian w/ variance .3, 3: quadratic
+param_dict['kernal_choice'] = 3 ##choice of interaction kernal 1: polynomial, 2: gaussian w/ variance .3, 3: quadratic
 param_dict['M'] = np.vectorize(slime1D.initial_masses)(param_dict['x0'],param_dict['initial_mass_profile']) * param_dict['h'] #particle masses
 param_dict['y0'] = 1 ##food source 1
 param_dict['y1'] = -1 ##food source 2
@@ -35,8 +35,8 @@ param_dict['ABC_params'] = [(0,5,1), (10,5,1), (10,1,5),(10,1,1), (10,5,5), (5,1
 
 #I.3 plotting/saving parameters
 param_dict['plot_profiles'] = 5  #times you want to plot a trajectory for, will always plot initial and final profile - number is how many additional
-results_folder = '../results/2020_sweep_longer_time_gaussian'# parameter_sweep_0420/polynomial_kernal/'
-filename = '/2020_sweep_longer_time_gaussian'#'0420sweep_polynomial_kernal'
+results_folder = '../results/2020_sweep_longer_time_quadratic'# parameter_sweep_0420/polynomial_kernal/'
+filename = '/2020_sweep_longer_time_quadratic'#'0420sweep_polynomial_kernal'
 results_folder_path = Path(results_folder)
 results_folder_path.mkdir(parents = True, exist_ok = True)
 
