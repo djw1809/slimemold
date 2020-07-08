@@ -144,7 +144,7 @@ def plot_trajectories(sol, masses,N,title):
 
 def plot_heatmap(sol, masses, N, time, gridpoints, cell_start, cell_end, ep, title):
     fig, ax = plt.subplots(figsize = (9,6))
-    
+
 
 def plot_profiles(sol, masses, N, time, gridpoints, cell_start, cell_end, ep, title):
 
@@ -168,3 +168,4 @@ def plot_profiles(sol, masses, N, time, gridpoints, cell_start, cell_end, ep, ti
 
 
     plt.savefig(title)
+    plt.clf() 
