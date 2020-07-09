@@ -36,7 +36,7 @@ param_dict['ABC_params'] = [(10,10,1), (10,5,1)] #set of A,B and C values to swe
 #I.3 plotting/saving parameters
 param_dict['plot_profiles'] = 3  #times you want to plot a trajectory for
 
-results_folder = 'test'#'../results/2020_2D_implementation_revision'
+results_folder = 'test/'#'../results/2020_2D_implementation_revision'
 filename = 'test'#'/2020_2D_implementation_revision'
 results_folder_path = Path(results_folder)
 results_folder_path.mkdir(parents = True, exist_ok = True)
