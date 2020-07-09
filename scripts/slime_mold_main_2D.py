@@ -12,8 +12,8 @@ from pathlib import Path
 #I Parameters
 param_dict = {}
 #I.1 Timing/grid/initial positions
-param_dict['N'] = 15 #number of particles for 1D or sqrt of number of partivles for 2D
-param_dict['T'] = 6 #final time
+param_dict['N'] = 1#15 #number of particles for 1D or sqrt of number of partivles for 2D
+param_dict['T'] = .1#6 #final time
 param_dict['cell_start'] =  -2.1 #start of spacial grid
 param_dict['cell_end'] = 2.1 #end of spacial grid
 param_dict['h'] = np.divide(param_dict['cell_end'] - param_dict['cell_start'], param_dict['N']) #stepsize in spacial grid
@@ -36,8 +36,8 @@ param_dict['ABC_params'] = [(10,10,1), (10,5,1)] #set of A,B and C values to swe
 #I.3 plotting/saving parameters
 param_dict['plot_profiles'] = 3  #times you want to plot a trajectory for
 
-results_folder = '../results/2020_2D_implementation_revision'
-filename = '/2020_2D_implementation_revision'
+results_folder = 'test'#'../results/2020_2D_implementation_revision'
+filename = 'test'#'/2020_2D_implementation_revision'
 results_folder_path = Path(results_folder)
 results_folder_path.mkdir(parents = True, exist_ok = True)
 
@@ -66,7 +66,7 @@ def sweep_2D(ABC_parameters, N, x0, maximum_step_size, T, y0,y1,M, m, eps, kerna
             print(plot_times)
 
             for time in plot_times:
-                slime2D.plot_profiles(sol, M, N, time, 200, param_dict['cell_start'], param_dict['cell_end'], param_dict['eps'], filename + "A%d_B%d,C%d" +' time = %d' % (set[0], set[1], set[2], time))
+                slime2D.plot_profiles(sol, M, N, time, 200, param_dict['cell_start'], param_dict['cell_end'], param_dict['eps'], filename + "A{}_B{}_C{}".format(se[0], set[1], set[2]) +' time = {}'.format(time)
 
     return sol_dict
 
