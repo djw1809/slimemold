@@ -12,8 +12,8 @@ from pathlib import Path
 #I Parameters
 param_dict = {}
 #I.1 Timing/grid/initial positions
-param_dict['N'] = 1#15 #number of particles for 1D or sqrt of number of partivles for 2D
-param_dict['T'] = .1#6 #final time
+param_dict['N'] = 15 #number of particles for 1D or sqrt of number of partivles for 2D
+param_dict['T'] = 6 #final time
 param_dict['cell_start'] =  -2.1 #start of spacial grid
 param_dict['cell_end'] = 2.1 #end of spacial grid
 param_dict['h'] = np.divide(param_dict['cell_end'] - param_dict['cell_start'], param_dict['N']) #stepsize in spacial grid
