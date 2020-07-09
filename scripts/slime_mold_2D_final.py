@@ -168,4 +168,4 @@ def plot_profiles(sol, masses, N, time, gridpoints, cell_start, cell_end, ep, ti
 
 
     plt.savefig(title)
-    plt.clf() 
+    plt.close() 

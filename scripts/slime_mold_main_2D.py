@@ -66,7 +66,7 @@ def sweep_2D(ABC_parameters, N, x0, maximum_step_size, T, y0,y1,M, m, eps, kerna
             print(plot_times)
 
             for time in plot_times:
-                slime2D.plot_profiles(sol, M, N, time, 200, param_dict['cell_start'], param_dict['cell_end'], param_dict['eps'], filename + "A{}_B{}_C{}".format(set[0], set[1], set[2]) +' time = {}'.format(time))
+                slime2D.plot_profiles(sol, M, N, time, 200, param_dict['cell_start'], param_dict['cell_end'], param_dict['eps'], results_folder + filename + "A{}_B{}_C{}".format(set[0], set[1], set[2]) +' time = {}'.format(time))
 
     return sol_dict
 
