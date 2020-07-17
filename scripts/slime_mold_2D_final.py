@@ -1,5 +1,7 @@
 import scipy as sci
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import matplotlib.colors as colors
 import matplotlib.cm as cmx
@@ -168,4 +170,4 @@ def plot_profiles(sol, masses, N, time, gridpoints, cell_start, cell_end, ep, ti
 
 
     plt.savefig(title)
-    plt.close() 
+    plt.close()
