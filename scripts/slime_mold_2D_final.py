@@ -1,5 +1,7 @@
 import scipy as sci
 import numpy as np
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import matplotlib.colors as colors
 import matplotlib.cm as cmx
@@ -144,7 +146,7 @@ def plot_trajectories(sol, masses,N,title):
 
 def plot_heatmap(sol, masses, N, time, gridpoints, cell_start, cell_end, ep, title):
     fig, ax = plt.subplots(figsize = (9,6))
-    
+
 
 def plot_profiles(sol, masses, N, time, gridpoints, cell_start, cell_end, ep, title):
 
@@ -168,3 +170,4 @@ def plot_profiles(sol, masses, N, time, gridpoints, cell_start, cell_end, ep, ti
 
 
     plt.savefig(title)
+    plt.close()
