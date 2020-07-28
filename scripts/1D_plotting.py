@@ -355,6 +355,13 @@ fair_solution_params = pickle.load(open('../results/2020_sweep_300_fair_quadrati
 sol = fair_solution[(1,1,1)]
 output = plot_both_things(sol, fair_solution_params['M'], compute_even_plot_times(len(sol['t']), 5), fair_solution_params['cell_start'], fair_solution_params['cell_end'], .02, fair_solution_params['y0'], fair_solution_params['y1'], 100, 'Quadratic kernel - fair regime', '../../tex/drafts/figures/quadratic_fair_300_2020', fair_solution_params['T'])
 output
+#%%
+zerofood_solution = pickle.load(open('../results/2020_sweep_200_0food_quadratic_kernel/2020_sweep_200_0food_polynomial_kernel_solution_data.pkl', 'rb'))
+zerofood_solution.keys()
+zerofood_params = pickle.load(open('../results/2020_sweep_200_0food_quadratic_kernel/2020_sweep_200_0food_polynomial_kernel_param_dict.pkl', 'rb'))
+sol = zerofood_solution[(0,1,1)]
+output = plot_both_things(sol, zerofood_params['M'], compute_even_plot_times(len(sol['t']), 5), zerofood_params['cell_start'], zerofood_params['cell_end'], .02, zerofood_params['y0'], zerofood_params['y1'], 100, 'Quadratic kernel - no food source', '../../tex/drafts/figures/quadratic_0food_200', zerofood_params['T'])
+output
 # %%
 gaussian_drift = plot_four_profiles('position', 'density', '../results/2020_sweep_gaussian_kernel/2020_sweep_gaussian_kernel_solution_data.pkl', '../results/2020_sweep_gaussian_kernel/2020_sweep_gaussian_kernel_param_dict.pkl', 5, "Drift dominated regime - gaussian kernel", .04, 'drift')
 gaussian_drift
@@ -401,3 +408,14 @@ poly_competition.savefig('../../tex/drafts/figures/2020_sweep_polynomial_kernel_
 #%%
 poly_fullcompetition = plot_six_profiles('position', 'density', '../results/2020_sweep_polynomial_kernel/2020_sweep_polynomial_kernel_solution_data.pkl', '../results/2020_sweep_polynomial_kernel/2020_sweep_polynomial_kernel_param_dict.pkl', 5, "Competition regime - polynomial kernel", .04, params = [(10,10,1), (10,10,5), (10,1,10), (10,5,10),(1,10,10), (5,10,10)])
 poly_fullcompetition.savefig('../../tex/drafts/figures/polynomial_fullcompetition_2020_200.pdf', format = 'pdf')
+
+#%%
+poly_longer_drift = plot_four_profiles('position', 'density', '../results/2020_sweep_longer_time_polynomial/2020_sweep_longer_time_polynomial_solution_data.pkl', '../results/2020_sweep_longer_time_polynomial/2020_sweep_longer_time_polynomial_param_dict.pkl', 5, "Drift dominated regime, longer simulation time - polynomial kernel", .04,'drift')
+poly_longer_drift.savefig('../../tex/drafts/figures/polynomial_longer_time_drift_dominated_2020_200.pdf', format = 'pdf')
+
+#%%
+poly_longer_interaction = plot_four_profiles('position', 'density', '../results/2020_sweep_longer_time_polynomial/2020_sweep_longer_time_polynomial_solution_data.pkl', '../results/2020_sweep_longer_time_polynomial/2020_sweep_longer_time_polynomial_param_dict.pkl', 5, "Interaction dominated regime, longer simulation time - polynomial kernel", .04,'interaction')
+poly_longer_interaction.savefig('../../tex/drafts/figures/polynomial_longer_time_interaction_dominated_2020_200.pdf', format = 'pdf')
+#%%
+poly_longer_fullcompetition = plot_six_profiles('position', 'density', '../results/2020_sweep_longer_time_polynomial/2020_sweep_longer_time_polynomial_solution_data.pkl', '../results/2020_sweep_longer_time_polynomial/2020_sweep_longer_time_polynomial_param_dict.pkl', 5, "Competition regime, longer simulation time - polynomial kernel", .04, params = [(10,10,1), (10,10,5), (10,1,10), (10,5,10),(1,10,10), (5,10,10)])
+poly_longer_fullcompetition.savefig('../../tex/drafts/figures/polynomial_longer_time_competition_2020_200.pdf', format = 'pdf')
