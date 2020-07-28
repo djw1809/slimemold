@@ -30,7 +30,7 @@ param_dict['kernal_choices'] = [1,2,3] ##choice of interaction kernal 1: polynom
 M = np.apply_along_axis(slime2D.initial_masses, 1, param_dict['x0'],1) #particle masses
 param_dict['M'] = M/np.sum(M)
 param_dict['y0'] = np.array([1,0]) ##food source 1
-param_dict['y1'] = y1 = np.array([-1,0]) ##food source 2
+param_dict['y1'] = np.array([-1,0]) ##food source 2
 param_dict['ABC_params'] = [(10,10,1), (10,5,1)] #set of A,B and C values to sweep over
 
 #I.3 plotting/saving parameters
